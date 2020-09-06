@@ -1,0 +1,29 @@
+{
+  "name": "mutanttest-node",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.1",
+    "mongoose": "^5.10.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcipolatti/MutantTest-Node.js.git"
+  },
+  "author": "Julián Cipolatti",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jcipolatti/MutantTest-Node.js/issues"
+  },
+  "homepage": "https://github.com/jcipolatti/MutantTest-Node.js#readme",
+  "description": "Test to find mutant DNA"
+}
