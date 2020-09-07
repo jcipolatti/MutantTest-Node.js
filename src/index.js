@@ -1,10 +1,15 @@
-const express = require("express");
+import "dotenv/config.js";
+import cors from "cors";
+import express from "express";
+
 const app = express();
 
-app.listen(3000, () => {
- console.log("El servidor está inicializado en el puerto 3000");
+app.use(cors());
+
+app.get("/", (req, res) => {
+  res.send("¡Hola Mundo!");
 });
 
-app.get('/', function (req, res) {
-    res.send('Mutant Test REST Api.')
-})
+app.listen(process.env.PORT, () =>
+  console.log("¡Aplicación de ejemplo escuchando en el puerto " + process.env.PORT + "!")
+);
