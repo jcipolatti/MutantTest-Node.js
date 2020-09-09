@@ -1,8 +1,10 @@
-var express = require("express"),
-    app = express(),
-    bodyParser  = require("body-parser"),
-    methodOverride = require("method-override");
-    mongoose = require('mongoose');
+require('dotenv').config();
+
+const express = require("express"),
+      app = express(),
+      bodyParser  = require("body-parser"),
+      methodOverride = require("method-override");
+      mongoose = require('mongoose');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -16,11 +18,16 @@ router.get('/', function(req, res) {
 
 app.use(router);
 
-mongoose.connect('mongodb://localhost/dna', function(err, res) {
-if(err) {
-    console.log('ERROR: connecting to Database. ' + err);
-  }
-  app.listen(3000, function() {
-    console.log("Node server running on http://localhost:3000");
+mongoose.connect(process.env.DB_CONNECTION, 
+  { 
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  }, 
+  function(err, res) {
+    if(err) {
+        console.log('ERROR: connecting to Database. ' + err);
+      }
+      app.listen(process.env.PORT, function() {
+        console.log("Node server running on http://localhost:3000");
+      });
   });
-});
